@@ -5,6 +5,7 @@ from django.shortcuts import render
 import openai
 openai.api_key = os.environ.get('API_KEYS')
 # Create your views here.
+
 def index(request):
     arr=[]
     if request.method == 'POST':
@@ -29,6 +30,7 @@ def index(request):
 
        
         arr.append(bot_response)
+        print("User: " +name)
         print("GPT: " + bot_response)
         context ={
             'results': arr,
