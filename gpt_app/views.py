@@ -10,9 +10,10 @@ def index(request):
     arr=[]
     if request.method == 'POST':
         if request.POST.get('search') != '':
-          name = request.POST.get('search')
+          input = request.POST.get('search')
           def generate_response(prompt):
             response = openai.Completion.create(
+                name = 'SolBot',
                 engine="text-davinci-002",
                 prompt=prompt,
                 max_tokens=2048,
@@ -22,7 +23,7 @@ def index(request):
             )
             return response.choices[0].text
           
-        user_input = name
+        user_input = input
 
         prompt = f"User: {user_input} Bot: "
         bot_response = generate_response(prompt)
@@ -30,11 +31,11 @@ def index(request):
 
        
         arr.append(bot_response)
-        print("User: " +name)
+        print("User: " + input)
         print("GPT: " + bot_response)
         context ={
             'results': arr,
-            'question': name,
+            'question': input
         }
     if len(arr)>0:
         return render(request,'index.html',context)
