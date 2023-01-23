@@ -13,7 +13,7 @@ def index(request):
           input = request.POST.get('search')
           def generate_response(prompt):
             response = openai.Completion.create(
-                name = 'SolBot',
+                #name = 'SolBot',
                 engine="text-davinci-002",
                 prompt=prompt,
                 max_tokens=2048,
