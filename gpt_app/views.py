@@ -3,7 +3,8 @@ import os
 # Create your views here.
 from django.shortcuts import render
 import openai
-openai.api_key = os.environ.get('API_KEYS')
+openai.api_key = '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'
+#os.environ.get('API_KEYS')
 # Create your views here.
 
 def index(request):
