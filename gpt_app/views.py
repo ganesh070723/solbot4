@@ -14,7 +14,7 @@ def index(request):
           def generate_response(prompt):
             response = openai.Completion.create(
                 #name = 'SolBot',
-                engine="text-davinci-002",
+                engine="text-davinci",
                 prompt=prompt,
                 max_tokens=2048,
                 n=1,
